@@ -14,4 +14,4 @@ Some of the images related to the user interface are shown bellow
 ![Game Screen](https://github.com/VladanPasagic/2048_HCI/assets/93393767/d2f69b2d-4263-4898-b627-8c4bec8b77cd)
 
 3. Leaderboard Screen
-![Leaderboard Screen](https://github.com/VladanPasagic/2048_HCI/assets/93393767/5a2b1eff-017b-4b59-bd69-ac9c80fe92a9)
+![Leaderboard Screen](https://github.com/VladanPasagic/2048_HCI/assets/93393767/7303ab3d-f162-4c3d-b4b1-9928d548f7e3)
