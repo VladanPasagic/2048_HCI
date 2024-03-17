@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="_2048.WPF.Views._2048View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:components="clr-namespace:_2048.WPF.Components" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="453" d:DesignWidth="865" Focusable="True" Loaded="UserControl_Loaded"
+             >
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding KeyDownCommand}" Key="Down"/>
+        <KeyBinding Command="{Binding KeySCommand}" Key="S"/>
+        <KeyBinding Command="{Binding KeyUpCommand}" Key="Up"/>
+        <KeyBinding Command="{Binding KeyWCommand}" Key="W"/>
+        <KeyBinding Command="{Binding KeyRightCommand}" Key="Right"/>
+        <KeyBinding Command="{Binding KeyDCommand}" Key="D"/>
+        <KeyBinding Command="{Binding KeyLeftCommand}" Key="Left"/>
+        <KeyBinding Command="{Binding KeyACommand}" Key="A"/>
+    </UserControl.InputBindings>
+    <materialDesign:DialogHost IsOpen="{Binding IsOpen}">
+        <materialDesign:DialogHost.DialogContent>
+            <components:LeaderboardModal DataContext="{Binding LeaderboardModalViewModel}"/>
+        </materialDesign:DialogHost.DialogContent>
+        <DockPanel>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0 0 0 0" Text="2048" Height="20" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="LightGray" Margin="15" BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <components:SingleTileControl Grid.Column="0" Grid.Row="0" DataContext="{Binding SingleTileControlViewModel[0][0]}"/>
+                            <components:SingleTileControl Grid.Column="0" Grid.Row="1" DataContext="{Binding SingleTileControlViewModel[0][1]}"/>
+                            <components:SingleTileControl Grid.Column="0" Grid.Row="2" DataContext="{Binding SingleTileControlViewModel[0][2]}"/>
+                            <components:SingleTileControl Grid.Column="0" Grid.Row="3" DataContext="{Binding SingleTileControlViewModel[0][3]}"/>
+                            <components:SingleTileControl Grid.Column="1" Grid.Row="0" DataContext="{Binding SingleTileControlViewModel[1][0]}"/>
+                            <components:SingleTileControl Grid.Column="1" Grid.Row="1" DataContext="{Binding SingleTileControlViewModel[1][1]}"/>
+                            <components:SingleTileControl Grid.Column="1" Grid.Row="2" DataContext="{Binding SingleTileControlViewModel[1][2]}"/>
+                            <components:SingleTileControl Grid.Column="1" Grid.Row="3" DataContext="{Binding SingleTileControlViewModel[1][3]}"/>
+                            <components:SingleTileControl Grid.Column="2" Grid.Row="0" DataContext="{Binding SingleTileControlViewModel[2][0]}"/>
+                            <components:SingleTileControl Grid.Column="2" Grid.Row="1" DataContext="{Binding SingleTileControlViewModel[2][1]}"/>
+                            <components:SingleTileControl Grid.Column="2" Grid.Row="2" DataContext="{Binding SingleTileControlViewModel[2][2]}"/>
+                            <components:SingleTileControl Grid.Column="2" Grid.Row="3" DataContext="{Binding SingleTileControlViewModel[2][3]}"/>
+                            <components:SingleTileControl Grid.Column="3" Grid.Row="0" DataContext="{Binding SingleTileControlViewModel[3][0]}"/>
+                            <components:SingleTileControl Grid.Column="3" Grid.Row="1" DataContext="{Binding SingleTileControlViewModel[3][1]}"/>
+                            <components:SingleTileControl Grid.Column="3" Grid.Row="2" DataContext="{Binding SingleTileControlViewModel[3][2]}"/>
+                            <components:SingleTileControl Grid.Column="3" Grid.Row="3" DataContext="{Binding SingleTileControlViewModel[3][3]}"/>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Column="1" Margin="15" Background="#313338">
+                        <StackPanel Margin="20" HorizontalAlignment="Center">
+                            <!--Fix-->
+                            <components:Scoreboard Margin="30" DataContext="{Binding Scoreboard}"></components:Scoreboard>
+                            <Button Margin="30 10" MaxWidth="200" Command="{Binding StartGameCommand}" Content="Start Game"/>
+                            <Button Margin="30 10" MaxWidth="200" Command="{Binding ResetGameCommand}" Content="Reset"/>
+                            <Button Margin="30 10" MaxWidth="200" Command="{Binding ViewLeaderboardCommand}" Content="View Leaderboard"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </materialDesign:DialogHost>
+</UserControl>

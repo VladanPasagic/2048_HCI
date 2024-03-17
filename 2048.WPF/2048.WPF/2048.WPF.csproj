@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<RootNamespace>_2048.WPF</RootNamespace>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Models\**" />
+	  <EmbeddedResource Remove="Models\**" />
+	  <None Remove="Models\**" />
+	  <Page Remove="Models\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+	  <PackageReference Include="LoadingSpinner.WPF" Version="1.0.0" />
+	  <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+	  <PackageReference Include="PasswordBoxMVVM" Version="1.0.5" />
+	  <PackageReference Include="SimpleModal.WPF" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\2048.Domain\2048.Domain.csproj" />
+		<ProjectReference Include="..\2048.EntityFramework\2048.EntityFramework.csproj" />
+	</ItemGroup>
+
+</Project>
